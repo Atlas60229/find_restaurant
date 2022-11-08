@@ -1,16 +1,5 @@
-<header>
-  <!-- navigation -->
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/">
-          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png" width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
-          我的餐廳清單
-        </a>
-    </div>
-  </nav>
 
-  <div class="banner"></div>
-</header>
+
 
 <!-- search bar -->
 <div class="container search-bar">
@@ -34,7 +23,7 @@
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="row row-cols-sm-3">
-        {{#each restaurant}}
+        {{#each restaurants}}
         <a href="/restaurants/{{this.id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">

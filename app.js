@@ -13,14 +13,14 @@ app.set('view engine', 'handlebars');
 
 //設定路由
 app.get('/',(req,res)=>{
-    res.render('index', {restaurant: restaurantList})
+    res.render('index', {restaurants: restaurantList})
 })
 
 app.get('/restaurants/:id',(req,res)=>{
-    const restaurant = restaurantList.filter((restaurant)=>{
+    const restaurant = restaurantList.find((restaurant)=>{
         return String(restaurant.id) === req.params.id
     })
-    res.render('show', {restaurant: restaurant[0]})
+    res.render('show', {restaurant: restaurant})
 })
 
 app.get('/search',(req,res)=>{
@@ -29,7 +29,7 @@ app.get('/search',(req,res)=>{
         return restaurant.name.toLowerCase().includes(inputKeyword) || restaurant.category.includes(inputKeyword)
     })
     
-    res.render('index', {restaurant: restaurants, keyword: req.query.keyword})
+    res.render('index', {restaurants: restaurants, keyword: req.query.keyword})
 })
 
 //啟動server
