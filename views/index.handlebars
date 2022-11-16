@@ -7,16 +7,20 @@
     <div class="search-bar-inner">
       <form action="/search">
         <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group">
+        <div class="input-group mb-3">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button">
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
           </div>
+
         </div>
       </form>
     </div>
+
+    <a class='btn btn-primary' href="./restaurants/new">新增</a>
   </div>
 </div>
+
 
 <!-- restaurant list -->
 <div class="container mt-5">
@@ -24,7 +28,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="row row-cols-sm-3">
         {{#each restaurants}}
-        <a href="/restaurants/{{this.id}}" class="text-secondary">
+        <div class="col">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
@@ -41,7 +45,16 @@
 
             </div>
           </div>
-        </a>
+
+          <div class='d-flex align-items-center justify-content-end mb-3 '>
+          <a class='mx-1' href="./restaurants/{{ this._id }}/edit">edit</a>
+          <a class='mx-2' href="./restaurants/{{ this._id }}">detail</a>
+          <form action="./restaurants/{{ this._id }}/delete" method="GET" style="display: inline;">
+            <button type="submit">delete</button>
+          </form>
+          </div>
+        </div>
+        
         {{/each}}
       </div>
     </div>

@@ -64,6 +64,10 @@ header {
   white-space:nowrap;
 }
 
+.card .badge{
+  color: black;
+}
+
 .restaurant-category {
   color: #666666;
   font-size: 0.8rem;
