@@ -11,8 +11,10 @@ express: v4.18.2 <br>
 express-handlebars: v6.0.6 <br>
 body-parser: v1.20.1 <br>
 dotenv: v16.0.3 <br>
-mongoose: v6.7.2
-
+mongoose: v6.7.2<br>
+MongoDB<br>
+Bootstrap 5.2.2<br>
+Font-awesome: v6.2.0
 
 ## 安裝:
 1. 打開terminal並複製此專案 <br>
@@ -33,13 +35,13 @@ mongoose: v6.7.2
 6. 啟用前先用 Terminal 輸入以下指令建立種子資料，看見seed created!代表建立成功。
 `npm run seed`
 
-5. 按ctrl + c 關閉後輸入以下指令啟動伺服器，執行 app.js 檔案<br>
+7. 按ctrl + c 關閉後輸入以下指令啟動伺服器，執行 app.js 檔案<br>
 `npm run dev` 或 `nodemon app.js`
 
-6. 當 terminal 出現下列訊息表示，表示伺服器與資料庫已啟動並成功連結<br>
+8. 當 terminal 出現下列訊息表示，表示伺服器與資料庫已啟動並成功連結<br>
 `success initiate Server`
 `MongoDB connected!`
 
-7. 開啟新網頁並在網址輸入http://localhost:3000/<br>
+9. 開啟新網頁並在網址輸入http://localhost:3000/<br>
 
-8. 關閉伺服器： ctrl + c <br>
+10. 關閉伺服器： ctrl + c <br>
