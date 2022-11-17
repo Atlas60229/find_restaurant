@@ -20,7 +20,6 @@ dataBase.once('open',()=> {
     //建立種子資料
     restaurants.forEach(restaurant => {
         Restaurant.create({
-            id: restaurant.id,
             name: restaurant.name,
             category: restaurant.category,
             image: restaurant.image,
