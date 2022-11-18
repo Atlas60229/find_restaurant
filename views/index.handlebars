@@ -1,25 +1,32 @@
+<div class="functionBar mt-5 d-flex justify-content-around">
+    <!-- search bar -->
+  <div class=" search-bar" style="max-width: 400px;">
+        <form action="/search" method="GET">
 
+          <div class="input-group mb-3">
+            <input type="text" name="keyword" class="form-control" placeholder="尋找餐廳" aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button">
+            <div class="input-group-append">
+              <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+            </div>
 
+        </form>
+      </div>
 
-<!-- search bar -->
-<div class="container search-bar">
-  <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/search">
-        <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group mb-3">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
-          </div>
-
-        </div>
-      </form>
-    </div>
-
-    <a class='btn btn-primary' href="./restaurants/new">新增</a>
   </div>
+      {{!-- sort dropdown box  --}}
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    排序：
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/asc">A -> Z</a></li>
+    <li><a class="dropdown-item" href="/desc">Z -> A</a></li>
+    <li><a class="dropdown-item" href="/location">地區</a></li>
+    <li><a class="dropdown-item" href="/catogory">類別</a></li>
+  </ul>
 </div>
+</div>
+
 
 
 <!-- restaurant list -->
@@ -49,7 +56,7 @@
           <div class='d-flex align-items-center justify-content-end mb-3 '>
           <a class='mx-1' href="./restaurants/{{ this._id }}/edit">edit</a>
           <a class='mx-2' href="./restaurants/{{ this._id }}">detail</a>
-          <form action="./restaurants/{{ this._id }}/delete" method="GET" style="display: inline;">
+          <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
             <button type="submit">delete</button>
           </form>
           </div>

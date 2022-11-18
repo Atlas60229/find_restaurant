@@ -4,6 +4,7 @@ Node.js + express框架下的試作品
 ## 內容:
 * 可用類別或店名搜尋
 * 點擊店家可看到電話、地址、簡介
+* 可新增、刪除、修改店家
 
 ## 執行環境
 Node.js: v18.12.0 <br>
@@ -14,7 +15,9 @@ dotenv: v16.0.3 <br>
 mongoose: v6.7.2<br>
 MongoDB<br>
 Bootstrap 5.2.2<br>
-Font-awesome: v6.2.0
+Font-awesome: v6.2.0<br>
+method-override: v3.0.0<br>
+
 
 ## 安裝:
 1. 打開terminal並複製此專案 <br>

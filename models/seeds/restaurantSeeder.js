@@ -1,18 +1,7 @@
-const mongoose = require('mongoose')
+const dataBase = require('../../config/mongoose')
 const Restaurant = require('../restaurant')
-const restaurants = require('./restaurant').results
+const restaurants = require('./fakeRestaurant').results
 
-
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-  }
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) // 設定連線到 mongoDB
-
-const dataBase = mongoose.connection
-
-dataBase.on('error',()=>{
-    console.log("mongoDB error")
-})
 
 dataBase.once('open',()=> {
     console.log('MongoDB connected!')
