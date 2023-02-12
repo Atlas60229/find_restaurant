@@ -27,10 +27,44 @@ module.exports = app => {
             .catch(err => done(err, false))
     }))
 
+    passport.use(new FacebookStrategy({
+        clientID: process.env.FACEBOOK_APP_ID,
+        clientSecret: process.env.FACEBOOK_APP_SECRET,
+        callbackURL: process.env.FACEBOOK_callbackURL,
+        profileFields: ["email", "displayName"]
+    },
+        (accessToken, refreshToken, profile, done) => {
+            const { name, email } = profile._json
+            User.findOne({ email })
+                .then(user => {
+                    if (user){
+                        
+                        return done(null, user) 
+
+                    } else {
+                        const randomPassword = Math.random().toString(36).slice(-8)
+
+                        bcrypt
+                            .genSalt(10)  //  得到 salt 送入下一個函式
+                            .then(salt => bcrypt.hash(randomPassword, salt))  //  用得到的salt 及原本的密碼產生hash值
+                            .then(hash => {
+                                    User.create({                               
+                                        name,
+                                        email,
+                                        password: hash  //  使用得到的hash值做為密碼創造帳號
+                                    })
+                            })
+                            .then(user => done(null, user))
+                            .catch(err => done(err, false))
+                    }
+                })
+        }
+    ));
+
     passport.serializeUser((user, done) => {
         done(null, user.id)
     })
-    
+
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => { done(err, user) })
             .lean()

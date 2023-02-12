@@ -35,7 +35,13 @@ const restaurantSchema = new Schema({
   description: {
     type: String,
     required: true
-  }
+  },
+  userID: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    index: true,
+    require: true
+}
 })
 
 module.exports = mongoose.model('Restaurant', restaurantSchema, "restaurant") // require restaurant.js時會得到mongoose.model('Restaurant',restaurantSchema)

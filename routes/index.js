@@ -10,7 +10,7 @@ const auth = require('./modules/auth')
 //use
 router.use('/users', users)  // 將網址結構符合 /users 字串的 request 導向 todos 模組 
 router.use('/restaurants', authenticator, restaurants) // 將網址結構符合 /restaurants 字串的 request 導向 restaurants 模組 
-// router.use('/auth', auth)
+router.use('/auth', auth)
 router.use('/', authenticator, home) // 將網址結構符合 / 字串的 request 導向 home 模組 
 
 module.exports = router
