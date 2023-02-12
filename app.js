@@ -11,11 +11,13 @@ const routes = require('./routes')
 require('./config/mongoose')  //執行app.js時會一併執行mongoose.js
 
 
+
 //use
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(routes)
+
 
 // 設定資料庫
     //已轉移到conig/mongoose
@@ -33,3 +35,4 @@ app.set('view engine', 'handlebars');
 app.listen(port,()=>{
     console.log('success initiate Server')
 })
+

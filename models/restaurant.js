@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') //用const mongoose代表整個mongoose函式庫
 const Schema = mongoose.Schema
 const restaurantSchema = new Schema({
   name: {
@@ -38,4 +38,4 @@ const restaurantSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Restaurant', restaurantSchema)
+module.exports = mongoose.model('Restaurant', restaurantSchema, "restaurant") // require restaurant.js時會得到mongoose.model('Restaurant',restaurantSchema)

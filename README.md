@@ -33,7 +33,7 @@ method-override: v3.0.0<br>
 `npm install -g nodemon`
 
 5. 新增.env檔案並設置資料庫連線字串：<br>
-`MONGODB_URL=mongodb+srv://<account>:<password>@cluster0.<xxxxx>.mongodb.net/<table>?retryWrites=true&w=majority`
+`MONGODB_URL=mongodb+srv://<account>:<password>@cluster0.<xxxxx>.mongodb.net/restaurantSet?retryWrites=true&w=majority`
 
 6. 啟用前先用 Terminal 輸入以下指令建立種子資料，看見seed created!代表建立成功。
 `npm run seed`
