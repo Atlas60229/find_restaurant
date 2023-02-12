@@ -10,6 +10,8 @@ Node.js + express框架下的試作品
 Node.js: v18.12.0 <br>
 express: v4.18.2 <br>
 express-handlebars: v6.0.6 <br>
+express-session: v1.17.3<br>
+bcryptjs: v2.4.3<br>
 body-parser: v1.20.1 <br>
 dotenv: v16.0.3 <br>
 mongoose: v6.7.2<br>
@@ -17,6 +19,8 @@ MongoDB<br>
 Bootstrap 5.2.2<br>
 Font-awesome: v6.2.0<br>
 method-override: v3.0.0<br>
+passport: v0.6.0<br>
+passport-local: v1.0.0<br>
 
 
 ## 安裝:
@@ -37,6 +41,8 @@ method-override: v3.0.0<br>
 
 6. 啟用前先用 Terminal 輸入以下指令建立種子資料，看見seed created!代表建立成功。
 `npm run seed`
+`seed created!`
+`seed established`
 
 7. 按ctrl + c 關閉後輸入以下指令啟動伺服器，執行 app.js 檔案<br>
 `npm run dev` 或 `nodemon app.js`
