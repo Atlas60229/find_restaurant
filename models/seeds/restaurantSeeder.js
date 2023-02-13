@@ -18,9 +18,17 @@ const SEED_USER2 = {
     password: "12345678"
 }
 
+
 dataBase.once('open', () => {
     console.log('MongoDB connected!')
     //建立種子資料
+
+    // user = User.findOne({ eamil: SEED_USER1.email })
+    // if (user) {
+    //     console.log('種子使用者已存在!')
+    //     return process.exit()
+    // }
+
 
     bcrypt
         .genSalt(10)
@@ -33,8 +41,8 @@ dataBase.once('open', () => {
         .then(user => {
             const userID = user._id
             return Promise.all(Array.from(
-                [0,1,2],
-                i => Restaurant.create({            
+                [0, 1, 2],
+                i => Restaurant.create({
                     name: restaurants[i].name,
                     category: restaurants[i].category,
                     image: restaurants[i].image,
@@ -43,11 +51,12 @@ dataBase.once('open', () => {
                     google_map: restaurants[i].google_map,
                     rating: restaurants[i].rating,
                     description: restaurants[i].description,
-                    userID })
+                    userID
+                })
             ))
         })
 
-        bcrypt
+    bcrypt
         .genSalt(10)
         .then(salt => bcrypt.hash(SEED_USER2.password, salt))
         .then(hash => User.create({
@@ -58,8 +67,8 @@ dataBase.once('open', () => {
         .then(user => {
             const userID = user._id
             return Promise.all(Array.from(
-                [3,4,5],
-                j => Restaurant.create({            
+                [3, 4, 5],
+                j => Restaurant.create({
                     name: restaurants[j].name,
                     category: restaurants[j].category,
                     image: restaurants[j].image,
@@ -68,11 +77,15 @@ dataBase.once('open', () => {
                     google_map: restaurants[j].google_map,
                     rating: restaurants[j].rating,
                     description: restaurants[j].description,
-                    userID })
+                    userID
+                })
             ))
         })
+
         .then(() => {
             console.log('seed established'),
             process.exit()
         })
+
+
 })
